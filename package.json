@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@managedkaos/simple-javascript-function": "^1.0.2"
+  }
 }
