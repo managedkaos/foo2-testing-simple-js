@@ -11,10 +11,10 @@ jobs:
     steps:
       - name: npmrcgen
         run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.PERSONAL_ACCESS_TOKEN }}" > .npmrc
-          echo "@managedkaos=https://npm.pkg.github.com/" >> .npmrc
-          echo "email=michael@example.com" >> .npmrc
-          echo "always-auth=true" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.PERSONAL_ACCESS_TOKEN }}" > /home/runner/.npmrc
+          echo "@managedkaos=https://npm.pkg.github.com/" >> /home/runner/.npmrc
+          echo "email=michael@example.com" >> /home/runner/.npmrc
+          echo "always-auth=true" >> /home/runner/.npmrc
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
