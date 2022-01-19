@@ -9,20 +9,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: npmrcgen
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.PERSONAL_ACCESS_TOKEN }}" > /home/runner/.npmrc
-          echo "@managedkaos=https://npm.pkg.github.com/" >> /home/runner/.npmrc
-          echo "email=michael@example.com" >> /home/runner/.npmrc
-          echo "always-auth=true" >> /home/runner/.npmrc
+      # - name: npmrcgen
+      #   run: |
+      #     echo "//npm.pkg.github.com/:_authToken=${{ secrets.PERSONAL_ACCESS_TOKEN }}" > /home/runner/.npmrc
+      #     echo "@managedkaos=https://npm.pkg.github.com/" >> /home/runner/.npmrc
+      #     echo "email=michael@example.com" >> /home/runner/.npmrc
+      #     echo "always-auth=true" >> /home/runner/.npmrc
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: 16
+          registry-url: '//npm.pkg.github.com/'
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.PERSONAL_ACCESS_TOKEN}}
       - run: npm test
       - run: cat package.json
       - run: cat package-lock.json
+      - run: cat /home/runner/.npmrc || echo yer
 
         # publish-gpr:
         #   needs: build
