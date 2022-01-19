@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
-      - run: npm login
+      - run: npm login --scope=@managedkaos --registry=https://npm.pkg.github.com
         env:
           ACCESS_TOKEN: ${PERSONAL_ACCESS_TOKEN}
       - run: npm ci
