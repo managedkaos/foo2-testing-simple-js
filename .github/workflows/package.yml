@@ -9,17 +9,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: ferluisxd/create-npmrc@3
-        with:
-          org_name: managedkaos
-        env:
-          AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - name: npmrcgen
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.PERSONAL_ACCESS_TOKEN }}" > .npmrc
+          echo "@managedkaos=https://npm.pkg.github.com/" >> .npmrc
+          echo "email=michael@example.com" >> .npmrc
+          echo "always-auth=true" >> .npmrc
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: 16
-      - run: find . -type f | grep npmrc
-      - run: cat ./.npmrc
         #- run: npm ci
         #- run: npm test
 
