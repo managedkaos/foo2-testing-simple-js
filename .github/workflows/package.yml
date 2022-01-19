@@ -23,8 +23,8 @@ jobs:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           always-auth: true
       - run: npm ci
-        #        env:
-        #  NODE_AUTH_TOKEN: ${{secrets.PERSONAL_ACCESS_TOKEN}}
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.PERSONAL_ACCESS_TOKEN}}
       - run: npm test
 
         # publish-gpr:
