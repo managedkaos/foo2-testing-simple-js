@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@managedkaos/simple-javascript-function": "^1.0.3"
+    "@managedkaos/simple-javascript-function": "^1.0.4"
   }
 }
