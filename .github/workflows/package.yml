@@ -20,13 +20,11 @@ jobs:
         with:
           node-version: 16
           registry-url: '//npm.pkg.github.com/'
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       - run: npm ci
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.PERSONAL_ACCESS_TOKEN}}
+        #        env:
+        #  NODE_AUTH_TOKEN: ${{secrets.PERSONAL_ACCESS_TOKEN}}
       - run: npm test
-      - run: cat package.json
-      - run: cat package-lock.json
-      - run: cat ${NPM_CONFIG_USERCONFIG} || echo yer
 
         # publish-gpr:
         #   needs: build
