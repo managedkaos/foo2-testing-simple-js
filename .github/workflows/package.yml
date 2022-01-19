@@ -26,7 +26,7 @@ jobs:
       - run: npm test
       - run: cat package.json
       - run: cat package-lock.json
-      - run: cat /home/runner/.npmrc || echo yer
+      - run: cat ${NPM_CONFIG_USERCONFIG} || echo yer
 
         # publish-gpr:
         #   needs: build
