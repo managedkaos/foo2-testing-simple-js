@@ -7,8 +7,8 @@ on:
 
 jobs:
   build:
-    permissions:
-      packages: read
+    #    permissions:
+    #  packages: read
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,7 +19,6 @@ jobs:
       - run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-            #          NODE_AUTH_TOKEN: ${{secrets.PERSONAL_ACCESS_TOKEN}}
       - run: npm test
 
         # publish-gpr:
