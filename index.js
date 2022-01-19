@@ -1,2 +1,1 @@
-alert("this is a simple message from an equally simeple javascript function")
-
+require('@managedkaos/simple-javascript-function')

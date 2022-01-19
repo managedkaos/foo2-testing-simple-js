@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@managedkaos/simple-javascript-function": "^1.0.2"
+    "@managedkaos/simple-javascript-function": "^1.0.3"
   }
 }
